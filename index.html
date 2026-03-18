@@ -7,10 +7,12 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     
     <style>
-        /* Referencing your local font.ttf from the root */
+        /* 1. Define the custom font */
         @font-face {
-            font-family: 'MainFont';
+            font-family: 'MyCustomFont';
             src: url('font.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
             font-display: swap;
         }
 
@@ -20,115 +22,128 @@
             padding: 0;
         }
 
+        /* 2. Layout & Background */
         body {
-            /* Background Image from root with dark overlay */
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
-                        url('background.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #f8fafc;
-            font-family: 'MainFont', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'MyCustomFont', sans-serif;
+            min-height: 100vh;
+            width: 100%;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            padding: 60px 20px;
+            align-items: center;
+            padding: 40px 20px;
+            
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #ffffff;
         }
 
-        .container {
-            width: 100%;
-            max-width: 420px;
+        /* 3. The Glass Card */
+        .glass-card {
+            background: rgba(0, 0, 0, 0.45); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 40px 30px;
+            border-radius: 30px;
             text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
         .profile-logo {
-            width: 110px;
-            height: 110px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 20px;
-            border: 3px solid #38bdf8;
-            background-color: #1e293b;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
-        header h1 {
-            font-size: 1.8rem;
+        h1 {
+            color: #ffffff;
             margin-bottom: 8px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            font-size: 28px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        header p {
-            color: #cbd5e1;
+        .tagline {
+            color: rgba(255, 255, 255, 0.7);
             font-size: 1.2rem;
             margin-bottom: 30px;
         }
 
-        .links-group {
+        .link-container {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 15px;
         }
 
-        .link-card {
-            background: rgba(30, 41, 59, 0.9);
-            backdrop-filter: blur(5px);
-            padding: 16px;
-            border-radius: 16px;
+        .btn {
             text-decoration: none;
-            color: #f8fafc;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-            border: 1px solid rgba(51, 65, 85, 0.5);
-            display: block;
+            color: white;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 14px;
+            border-radius: 15px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            font-family: 'MyCustomFont', sans-serif;
         }
 
-        .link-card:hover {
-            transform: translateY(-2px);
-            background: #334155;
-            border-color: #38bdf8;
-        }
-
-        /* Styling for the Founder link within the group */
-        .founder-btn {
-            background: rgba(56, 189, 248, 0.1);
+        .btn:hover {
+            background: #ffffff;
+            color: #000000;
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         .label {
             display: block;
-            font-size: 1rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            color: #38bdf8;
-            margin-top: 2rem;
-            margin-bottom: 4px;
-            letter-spacing: 0.05em;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 25px;
+            margin-bottom: 8px;
+            letter-spacing: 0.1em;
+        }
+
+        .founder-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="glass-card">
         <img src="logo.jpg" alt="Sapiens Sense Logo" class="profile-logo">
-
+        
         <header>
             <h1>Sapiens Sense</h1>
-            <p>🧠🧠🧠</p>
+            <p class="tagline">🧠🧠🧠</p>
         </header>
 
-        <nav class="links-group">
-            <a href="mailto:sapienssense@tutamail.com" class="link-card">sapienssense@tutamail.com</a>
-            <a href="https://discord.com/invite/rmUwXbXm" class="link-card">Discord</a>
-            <a href="https://www.youtube.com/@sapienssense" class="link-card">YouTube</a>
-            <a href="https://medium.com/@sapienssense" class="link-card">Medium</a>
-            <a href="https://www.instagram.com/sapienssense" class="link-card">Instagram</a>
-            <a href="https://www.facebook.com/sapienssense" class="link-card">Facebook</a>
-            <a href="https://x.com/Sapiens_Sense" class="link-card">X (Twitter)</a>
-            <a href="https://www.threads.com/@sapienssense" class="link-card">Threads</a>
+        <div class="link-container">
+            <a href="mailto:sapienssense@tutamail.com" class="btn">sapienssense@tutamail.com</a>
+            <a href="https://discord.com/invite/rmUwXbXm" class="btn">Discord</a>
+            <a href="https://www.youtube.com/@sapienssense" class="btn">YouTube</a>
+            <a href="https://medium.com/@sapienssense" class="btn">Medium</a>
+            <a href="https://www.instagram.com/sapienssense" class="btn">Instagram</a>
+            <a href="https://www.facebook.com/sapienssense" class="btn">Facebook</a>
+            <a href="https://x.com/Sapiens_Sense" class="btn">X (Twitter)</a>
+            <a href="https://www.threads.com/@sapienssense" class="btn">Threads</a>
+            
             <span class="label">Founder</span>
-            <a href="https://mrriyaj.uddinmondal.in/" class="link-card founder-btn">
+            <a href="https://mrriyaj.uddinmondal.in/" class="btn founder-btn">
                 Riyajuddin Mondal
             </a>
-        </nav>
+        </div>
     </div>
 
 </body>
